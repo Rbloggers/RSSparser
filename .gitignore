@@ -1,0 +1,6 @@
+/bin
+/include
+/__init__.py
+/lib
+/__pycache__
+/share
