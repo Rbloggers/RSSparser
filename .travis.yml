@@ -1,0 +1,21 @@
+language: python
+python:
+  - "3.6"
+sudo: required
+dist: trusty
+install:
+  - pip3 install numpy
+  - pip3 install feedparser
+
+script:
+  - python3 main.py
+
+# deploy
+deploy:
+  - provider: pages    # Deploy master to branch win-build
+    skip-cleanup: true
+    github-token: $GH_TOKEN  # Set in travis-ci.org dashboard
+    keep-history: false
+    on:
+      branch: master
+
