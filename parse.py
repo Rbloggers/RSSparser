@@ -2,11 +2,12 @@
 #url = 'http://127.0.0.1:4000/feed.twRloggers.xml'
 #author = 'Need submission data'
 
-#feed2json("http://127.0.0.1:4000/feed.twRloggers.xml", "Need submission data")
-def feed2json(url, author, outfile):
+#feed2json("http://127.0.0.1:4000/feed.twRloggers.xml", "Need submission data", "author/author.json")
+def feed2json(url, author):
     import feedparser
     import time
     import json
+    import os, sys
     
     author = author.replace(" ", "_")
     d = feedparser.parse(url)
@@ -39,7 +40,9 @@ def feed2json(url, author, outfile):
     feed_dict['content'] = content
 
     ## Save to JSON
-    with open(outfile, 'w') as fp:
+    if not os.path.isdir(author):
+        os.mkdir(author)
+    with open(author + '/new-' + author, 'w') as fp:
         json.dump(feed_dict, fp)
 
 
