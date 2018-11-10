@@ -23,7 +23,7 @@ def feed2json(url, author, dirname):
         post_url[i] = d.entries[i].link
         date[i] = d.entries[i].published_parsed
         date[i] = time.strftime('%Y-%m-%d', date[i])
-        content[i] = json.dumps(d.entries[i].description)
+        content[i] = d.entries[i].description
         
         onepost_tags = []
         for j in range(0, len(d.entries[i].tags)):
