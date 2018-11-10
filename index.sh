@@ -1,8 +1,9 @@
 #!/bin/bash
 
 cat >> index.md  << _EOF_
+[![Build Status](https://travis-ci.org/Rbloggers/RSSparser.svg?branch=master)](https://travis-ci.org/Rbloggers/RSSparser)
 
-# List of JSON
+# Authors
 <br><br>
 
 _EOF_

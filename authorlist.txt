@@ -1,2 +1,1 @@
 Yongfu_Liao,Yongfu Liao,https://liao961120.github.io/feed.twRloggers.xml
-Yongfu_Liao2,Yongfu Liao Jr,http://127.0.0.1:4000/feed.twRloggers.xml
