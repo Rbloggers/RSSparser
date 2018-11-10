@@ -14,3 +14,5 @@ while read p; do
     printf "$author ([new](${dir}/new.json), [old](${dir}/old.json), [post](${dir}/new_post.json))\n\n" >> index.md
     
 done < authorlist.txt
+
+printf 'theme: jekyll-theme-tactile' > _config.yml
