@@ -3,7 +3,7 @@
 #author = 'Need submission data'
 
 #feed2json("http://127.0.0.1:4000/feed.twRloggers.xml", "Need submission data")
-def feed2json(url, author):
+def feed2json(url, author, outfile):
     import feedparser
     import time
     import json
@@ -39,8 +39,7 @@ def feed2json(url, author):
     feed_dict['content'] = content
 
     ## Save to JSON
-    filename = str(author) + '.json'
-    with open(filename, 'w') as fp:
+    with open(outfile, 'w') as fp:
         json.dump(feed_dict, fp)
 
 
