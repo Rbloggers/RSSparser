@@ -1,0 +1,7 @@
+### Bloggers
+http://xxxx.blogspot.com/feeds/posts/default/-/<label>
+
+### Medium
+
+### Hugo
+https://gohugo.io/templates/rss/

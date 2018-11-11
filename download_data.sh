@@ -7,5 +7,5 @@ while read p; do
     [[ -d $authorname ]] || mkdir $authorname
     
     # Download old data
-    curl "https://rbloggers.github.io/authors/$authorname/new.json" > "$authorname/old.json"
+    curl --fail "https://rbloggers.github.io/authors/$authorname/new.json" > "$authorname/old.json"
 done < authorlist.txt

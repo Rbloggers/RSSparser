@@ -25,10 +25,13 @@ def feed2json(url, author, dirname):
         date[i] = time.strftime('%Y-%m-%d', date[i])
         content[i] = d.entries[i].description
         
-        onepost_tags = []
-        for j in range(0, len(d.entries[i].tags)):
-            onepost_tags.append(d.entries[i].tags[j].term)
-        tags[i] = onepost_tags
+        if 'tags' in d.entries[i]:
+            onepost_tags = []
+            for j in range(0, len(d.entries[i].tags)):
+                onepost_tags.append(d.entries[i].tags[j].term)
+            tags[i] = onepost_tags
+        else:
+            tags[i] = ['']
         
     ## Construct dictionary
     feed_dict = {}

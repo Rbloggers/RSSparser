@@ -1,4 +1,4 @@
-import subprocess, parse, json
+import subprocess, parse, json, os
 from pprint import pprint
 import numpy as np
 import time
@@ -29,8 +29,16 @@ for i in range(0, len(dirname)):
     ## Read data
     with open(dirname[i] + '/new.json') as f:
         new_data = json.load(f)
-    with open(dirname[i] + '/old.json') as f2:
-        old_data = json.load(f2)
+        
+    if os.path.getsize(dirname[i] + '/old.json') == 0:
+        old_data = {}
+        old_data['id'] = ['']
+#        old_data['date'] = ['']
+#        old_data['tags'] = ['']
+#        old_data['content'] = ['']
+    else:
+        with open(dirname[i] + '/old.json') as f2:
+            old_data = json.load(f2)
     
     ## Find new post idx
     new_posts = set(new_data['id']) - set(old_data['id'])
@@ -41,8 +49,6 @@ for i in range(0, len(dirname)):
     
     # If new posts are found
     new_urls = np.array(new_data['id'])
-    print(new_urls)
-    print(new_posts)
     new_idx = []
     for j in list(new_posts):
         idx = np.where(new_urls == j)[0][0]
