@@ -7,7 +7,7 @@ import time
 #######  Prepare new & old JSON  ########
 
 # Download Old json data
-subprocess.call(["bash", "download_data.sh"])
+#subprocess.call(["bash", "download_data.sh"])
 
 
 # Get author feeds

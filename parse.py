@@ -14,6 +14,7 @@ def feed2json(url, author, dirname):
     ## Initialize variables
     post_url = ['']*len(d.entries)
     date = ['']*len(d.entries)
+    title = ['']*len(d.entries)
     content = ['']*len(d.entries)
     tags = ['']*len(d.entries)
     
