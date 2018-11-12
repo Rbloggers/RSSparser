@@ -23,6 +23,7 @@ def feed2json(url, author, dirname):
         post_url[i] = d.entries[i].link
         date[i] = d.entries[i].published_parsed
         date[i] = time.strftime('%Y-%m-%d', date[i])
+        title[i] = d.entries[i].title
         content[i] = d.entries[i].description
         
         if 'tags' in d.entries[i]:
@@ -36,6 +37,7 @@ def feed2json(url, author, dirname):
     ## Construct dictionary
     feed_dict = {}
     feed_dict['author'] = author
+    feed_dict['title'] = title
     feed_dict['id'] = post_url
     feed_dict['date'] = date
     feed_dict['tags'] = tags
