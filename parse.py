@@ -32,6 +32,7 @@ def feed2json(url, author, dirname):
         
         if post_url[i].endswith('/'):
             post_url[i] = post_url[i][:-1]
+            rblog_url[i] = date[i].replace('-', '/') + '/' + dirname + '-' + os.path.basename(post_url[i]) + '.html'
         rblog_url[i] = date[i].replace('-', '/') + '/' + dirname + '-' + os.path.basename(post_url[i])
 
         if 'tags' in d.entries[i]:
