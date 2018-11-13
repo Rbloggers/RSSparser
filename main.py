@@ -7,14 +7,14 @@ import time
 #######  Prepare new & old JSON  ########
 
 # Download Old json data
-#subprocess.call(["bash", "download_data.sh"])
+subprocess.call(["bash", "download_oldjson.sh"])
 
 
 # Get author feeds
 with open('authorlist.txt') as f:
     lines = f.read().splitlines()
 
-# Construct New json data: Parse feeds
+# New json data: Parse feeds
 dirname = ['']*len(lines)
 for i in range(0, len(lines)):
     ls = lines[i].split(",")
@@ -64,6 +64,7 @@ for i in range(0, len(dirname)):
         new_idx = new_idx[0]
        
         feed_dict['id'] = new_data['id'][new_idx]
+        feed_dict['rblog_url'] = new_data['rblog_url'][new_idx]
         feed_dict['date'] = new_data['date'][new_idx]
         feed_dict['tags'] = new_data['tags'][new_idx]
         feed_dict['content'] = new_data['content'][new_idx]
@@ -71,6 +72,7 @@ for i in range(0, len(dirname)):
     # If more than 1 new posts found
     else:
         new_post_id = ['']*len(new_idx)
+        new_post_rblog_url = ['']*len(new_idx)
         new_post_date = ['']*len(new_idx)
         new_post_tags = ['']*len(new_idx)
         new_post_title = ['']*len(new_idx)
@@ -78,12 +80,14 @@ for i in range(0, len(dirname)):
         
         for k in range(0, len(new_idx)):
             new_post_id[k] = new_data['id'][new_idx[k]]
+            new_post_rblog_url[k] = new_data['rblog_url'][new_idx[k]]
             new_post_date[k] = new_data['date'][new_idx[k]]
             new_post_tags[k] = new_data['tags'][new_idx[k]]
             new_post_title[k] = new_data['title'][new_idx[k]]
             new_post_content[k] = new_data['content'][new_idx[k]]
         
         feed_dict['id'] = new_post_id
+        feed_dict['rblog_url'] = new_post_rblog_url
         feed_dict['date'] = new_post_date
         feed_dict['tags'] = new_post_tags
         feed_dict['title'] = new_post_title
