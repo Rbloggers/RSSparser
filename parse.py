@@ -12,7 +12,7 @@ def feed2json(url, author, dirname):
     d = feedparser.parse(url)
     
     # Filter redundant tags
-    tags_redund = set(['R','r','中文'])
+    tags_redund = set(['R','r','中文','Chinese','chinese','R 部落客','R部落客'])
     
     ## Initialize variables
     post_url = ['']*len(d.entries)
