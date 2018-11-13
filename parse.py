@@ -29,6 +29,9 @@ def feed2json(url, author, dirname):
         date[i] = time.strftime('%Y-%m-%d', date[i])
         title[i] = d.entries[i].title
         content[i] = d.entries[i].description
+        
+        if post_url[i].endswith('/'):
+            post_url[i] = post_url[i][:-1]
         rblog_url[i] = date[i].replace('-', '/') + '/' + dirname + '-' + os.path.basename(post_url[i])
 
         if 'tags' in d.entries[i]:
