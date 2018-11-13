@@ -43,7 +43,7 @@ for i in range(0, len(dirname)):
     ## Find new post idx
     new_posts = set(new_data['id']) - set(old_data['id'])
     
-    # If no new posts found
+    # If no new posts found, start new loop
     if len(new_posts) == 0:
         continue # enter next for loop
     
