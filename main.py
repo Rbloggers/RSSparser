@@ -1,5 +1,4 @@
 import subprocess, parse, json, os
-from pprint import pprint
 import numpy as np
 import time
 
@@ -33,9 +32,6 @@ for i in range(0, len(dirname)):
     if os.path.getsize(dirname[i] + '/old.json') == 0:
         old_data = {}
         old_data['id'] = ['']
-#        old_data['date'] = ['']
-#        old_data['tags'] = ['']
-#        old_data['content'] = ['']
     else:
         with open(dirname[i] + '/old.json') as f2:
             old_data = json.load(f2)
@@ -43,8 +39,10 @@ for i in range(0, len(dirname)):
     ## Find new post idx
     new_posts = set(new_data['id']) - set(old_data['id'])
     
-    # If no new posts found, start new loop
+    # If no new posts found,
+      # Create empty file & start new loop
     if len(new_posts) == 0:
+        os.mknod(dirname[i] + '/new_post.json')  # Create empty file
         continue # enter next for loop
     
     # If new posts are found
