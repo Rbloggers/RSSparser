@@ -2,7 +2,7 @@
 #url = 'http://127.0.0.1:4000/feed.twRloggers.xml'
 #author = 'Need submission data'
 
-#feed2json("http://127.0.0.1:4000/feed.twRloggers.xml", "Need submission data", "yongfu")
+#feed2json("http://liao961120.github.io/feed.twRloggers.xml", "Need submission data", "yongfu")
 def feed2json(url, author, dirname):
     import feedparser
     import time
@@ -10,7 +10,7 @@ def feed2json(url, author, dirname):
     import os, sys
     
     d = feedparser.parse(url)
-
+    tags_redund = set(['R','r','中文'])
     ## Initialize variables
     post_url = ['']*len(d.entries)
     date = ['']*len(d.entries)
@@ -31,8 +31,13 @@ def feed2json(url, author, dirname):
         if 'tags' in d.entries[i]:
             onepost_tags = []
             for j in range(0, len(d.entries[i].tags)):
-                onepost_tags.append(d.entries[i].tags[j].term)
-            tags[i] = onepost_tags
+                term = d.entries[i].tags[j].term
+                if term not in tags_redund:
+                    onepost_tags.append(term)
+            if len(onepost_tags) != 0:
+                tags[i] = onepost_tags
+            else:
+                tags[i] = ['']
         else:
             tags[i] = ['']
         
