@@ -10,7 +10,10 @@ def feed2json(url, author, dirname):
     import os, sys
     
     d = feedparser.parse(url)
+    
+    # Filter redundant tags
     tags_redund = set(['R','r','中文'])
+    
     ## Initialize variables
     post_url = ['']*len(d.entries)
     date = ['']*len(d.entries)
