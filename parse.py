@@ -30,11 +30,16 @@ def feed2json(url, author, dirname):
         title[i] = d.entries[i].title
         content[i] = d.entries[i].description
         
+        # Dealing with no basename case, e.g. https://asdsd.com/
         if post_url[i].endswith('/'):
             post_url[i] = post_url[i][:-1]
-            rblog_url[i] = date[i].replace('-', '/') + '/' + dirname + '-' + os.path.basename(post_url[i]) + '.html'
-        else:
-            rblog_url[i] = date[i].replace('-', '/') + '/' + dirname + '-' + os.path.basename(post_url[i])
+        
+        rblog_url[i] = date[i].replace('-', '/') + '/' + dirname + '-' + os.path.basename(post_url[i])
+
+        # Append '.html' to rblog_url[i], if not found
+        if not post_url[i].endswith('.html'):
+            rblog_url[i] += '.html'
+            
 
         if 'tags' in d.entries[i]:
             onepost_tags = []
