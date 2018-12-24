@@ -30,11 +30,6 @@ def feed2json(url, author, dirname):
         title[i] = d.entries[i].title
         content[i] = d.entries[i].description
         
-        #### Deal with specific case: Alan Lee 個人簡介
-        if title[i] == '個人簡介(About)':
-            continue
-        ##############
-        
         # Dealing with no basename case, e.g. https://asdsd.com/
         if post_url[i].endswith('/'):
             post_url[i] = post_url[i][:-1]
@@ -58,7 +53,20 @@ def feed2json(url, author, dirname):
                 tags[i] = ['']
         else:
             tags[i] = ['']
-        
+    
+    
+    
+    #### Deal with specific case: Alan Lee 個人簡介
+    idx = title.index('個人簡介(About)')
+    del title[idx]
+    del post_url[idx]
+    del rblog_url[idx]
+    del date[idx]
+    del tags[idx]
+    del content[idx]
+    ##############
+    
+    
     ## Construct dictionary
     feed_dict = {}
     feed_dict['author'] = author
@@ -68,6 +76,8 @@ def feed2json(url, author, dirname):
     feed_dict['date'] = date
     feed_dict['tags'] = tags
     feed_dict['content'] = content
+
+
 
     ## Save to JSON
     if not os.path.isdir(dirname):
