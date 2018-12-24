@@ -14,7 +14,7 @@ while read p; do
     ############################################
     
     ######## Interupution: make old post empty ########
-    > "$authorname/old.json"
+    #> "$authorname/old.json"
     ##########################
 
 done < authorlist.txt
