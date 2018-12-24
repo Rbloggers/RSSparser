@@ -57,13 +57,14 @@ def feed2json(url, author, dirname):
     
     
     #### Deal with specific case: Alan Lee 個人簡介
-    idx = title.index('個人簡介(About)')
-    del title[idx]
-    del post_url[idx]
-    del rblog_url[idx]
-    del date[idx]
-    del tags[idx]
-    del content[idx]
+    if '個人簡介(About)' in title:
+        idx = title.index('個人簡介(About)')
+        del title[idx]
+        del post_url[idx]
+        del rblog_url[idx]
+        del date[idx]
+        del tags[idx]
+        del content[idx]
     ##############
     
     
