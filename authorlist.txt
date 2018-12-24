@@ -1,4 +1,4 @@
 Yongfu_Liao,Yongfu Liao,https://liao961120.github.io/feed.twRloggers.xml
 Alan_Lee,Alan Lee,http://rwepa.blogspot.com/feeds/posts/default
-GT_Wang,G. T. Wang,https://blog.gtwang.org/category/r/feed/
-Steve_Chen,Steve Chen,http://steve-chen.tw/?cat=3&feed=rss2
+yjtseng,yjtseng,https://blog.yjtseng.info/tags/r/index.xml
+chishenh,chishenh,https://chishenh.netlify.com/categories/r/index.xml
