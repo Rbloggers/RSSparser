@@ -1,4 +1,3 @@
 Yongfu_Liao,Yongfu Liao,https://liao961120.github.io/feed.twRloggers.xml
 Alan_Lee,Alan Lee,http://rwepa.blogspot.com/feeds/posts/default
 yjtseng,yjtseng,https://blog.yjtseng.info/tags/r/index.xml
-chishenh,chishenh,https://chishenh.netlify.com/categories/r/index.xml
