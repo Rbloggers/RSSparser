@@ -1,0 +1,26 @@
+language: python
+python:
+  - "3.6"
+sudo: required
+dist: trusty
+install:
+  - pip3 install numpy
+  - pip3 install feedparser
+
+script:
+  - python3 main.py
+  - bash index.sh
+
+after_success:
+  - gem install travis -v 1.8.9 --no-rdoc --no-ri
+  - bash trigger-web-build.sh
+
+# deploy
+deploy:
+  - provider: pages
+    skip-cleanup: true
+    github-token: $GH_TOKEN
+    keep-history: false
+    on:
+      branch: master
+
