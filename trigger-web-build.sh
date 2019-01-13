@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Login to access token
-travis login --github-token $GH_TOKEN
+travis login --github-token=${GH_TOKEN}
 travis_tk=`travis token`
 
 
 body='{
 "request": {
 "message": "API request from RSSparser to build web page",
-"branch": "master"
+"branch": "dev"
 }}'
 
 
