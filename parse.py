@@ -38,7 +38,10 @@ def feed2json(url, author, dirname):
             post_url[i] = post_url[i][:-1]
         
         rblog_url[i] = date[i].replace('-', '/') + '/' + dirname + '-' + os.path.basename(post_url[i])
-
+        # Deal with Steve Chen URL        
+        if author == 'Steve Chen':
+            rblog_url[i] = rblog_url[i].replace('-?p=', '-')
+        
         # Append '.html' to rblog_url[i], if not found
         if not post_url[i].endswith('.html'):
             rblog_url[i] += '.html'
