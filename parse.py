@@ -12,7 +12,7 @@ def feed2json(url, author, dirname):
     d = feedparser.parse(url)
     
     # Filter redundant tags
-    tags_redund = set(['R','r','中文','Chinese','chinese','R 部落客','R部落客'])
+    tags_redund = set(['R','r','中文','Chinese','chinese','R 部落客','R部落客', '未分類'])
     
     ## Initialize variables
     post_url = ['']*len(d.entries)
@@ -28,7 +28,10 @@ def feed2json(url, author, dirname):
         date[i] = d.entries[i].published_parsed
         date[i] = time.strftime('%Y-%m-%d', date[i])
         title[i] = d.entries[i].title
-        content[i] = d.entries[i].description
+        if author == 'Steve Chen':
+            content[i] = d.entries[i].content[0].value
+        else:
+            content[i] = d.entries[i].description
         
         # Dealing with no basename case, e.g. https://asdsd.com/
         if post_url[i].endswith('/'):
