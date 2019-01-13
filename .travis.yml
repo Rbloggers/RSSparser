@@ -14,7 +14,7 @@ script:
 after_success:
   - echo 'Triggering next travis build'
   - gem install travis -v 1.8.9 --no-rdoc --no-ri
-#  - bash trigger-web-build.sh
+  - bash trigger-web-build.sh
 
 # deploy
 deploy:
