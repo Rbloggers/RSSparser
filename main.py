@@ -18,7 +18,7 @@ dirname = ['']*len(lines)
 for i in range(0, len(lines)):
     ls = lines[i].split(",")
     dirname[i] = ls[0]
-    parse.feed2json(url=ls[2], author=ls[1], dirname=ls[0])
+    parse.feed2json(url=ls[2], author=ls[1], dirname=ls[0]) # Creates <author>/new.json
     
 
 
@@ -56,40 +56,29 @@ for i in range(0, len(dirname)):
     ## Contruct New posts data
     feed_dict = {}
     feed_dict['author'] = new_data['author']
+
+
+    new_post_id = ['']*len(new_idx)
+    new_post_rblog_url = ['']*len(new_idx)
+    new_post_date = ['']*len(new_idx)
+    new_post_tags = ['']*len(new_idx)
+    new_post_title = ['']*len(new_idx)
+    new_post_content = ['']*len(new_idx)
     
-    # If only 1 new post found
-    if len(new_idx) == 1:
-        new_idx = new_idx[0]
-       
-        feed_dict['id'] = new_data['id'][new_idx]
-        feed_dict['rblog_url'] = new_data['rblog_url'][new_idx]
-        feed_dict['date'] = new_data['date'][new_idx]
-        feed_dict['tags'] = new_data['tags'][new_idx]
-        feed_dict['content'] = new_data['content'][new_idx]
-        
-    # If more than 1 new posts found
-    else:
-        new_post_id = ['']*len(new_idx)
-        new_post_rblog_url = ['']*len(new_idx)
-        new_post_date = ['']*len(new_idx)
-        new_post_tags = ['']*len(new_idx)
-        new_post_title = ['']*len(new_idx)
-        new_post_content = ['']*len(new_idx)
-        
-        for k in range(0, len(new_idx)):
-            new_post_id[k] = new_data['id'][new_idx[k]]
-            new_post_rblog_url[k] = new_data['rblog_url'][new_idx[k]]
-            new_post_date[k] = new_data['date'][new_idx[k]]
-            new_post_tags[k] = new_data['tags'][new_idx[k]]
-            new_post_title[k] = new_data['title'][new_idx[k]]
-            new_post_content[k] = new_data['content'][new_idx[k]]
-        
-        feed_dict['id'] = new_post_id
-        feed_dict['rblog_url'] = new_post_rblog_url
-        feed_dict['date'] = new_post_date
-        feed_dict['tags'] = new_post_tags
-        feed_dict['title'] = new_post_title
-        feed_dict['content'] = new_post_content
+    for k in range(0, len(new_idx)):
+        new_post_id[k] = new_data['id'][new_idx[k]]
+        new_post_rblog_url[k] = new_data['rblog_url'][new_idx[k]]
+        new_post_date[k] = new_data['date'][new_idx[k]]
+        new_post_tags[k] = new_data['tags'][new_idx[k]]
+        new_post_title[k] = new_data['title'][new_idx[k]]
+        new_post_content[k] = new_data['content'][new_idx[k]]
+    
+    feed_dict['id'] = new_post_id
+    feed_dict['rblog_url'] = new_post_rblog_url
+    feed_dict['date'] = new_post_date
+    feed_dict['tags'] = new_post_tags
+    feed_dict['title'] = new_post_title
+    feed_dict['content'] = new_post_content
         
     with open(dirname[i] + '/new_post.json', 'w') as fp:
         json.dump(feed_dict, fp)
