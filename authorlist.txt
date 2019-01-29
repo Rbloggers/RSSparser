@@ -2,4 +2,4 @@ Yongfu_Liao,Yongfu Liao,https://liao961120.github.io/feed.twRloggers.xml
 Alan_Lee,Alan Lee,http://rwepa.blogspot.com/feeds/posts/default
 yjtseng,yjtseng,https://blog.yjtseng.info/tags/r/index.xml
 Steve_Chen,Steve Chen,http://steve-chen.tw/?cat=3&feed=rss2
-collabin,collabin,http://127.0.0.1:4321/tags/rblog/index.xml
+collabin,collabin,https://collabin.netlify.com/tags/rblog/index.xml
