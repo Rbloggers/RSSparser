@@ -1,2 +1,3 @@
-Steve_Chen,Steve Chen,http://steve-chen.tw/?cat=3&feed=rss2
 GT_Wang,G. T. Wang,https://blog.gtwang.org/category/r/feed/
+Edward_Tung,Edward_Tung,https://medium.com/feed/r-語言自學系列
+medium_r_lang,medium_r_lang,https://medium.com/feed/tag/r-%E8%AA%9E%E8%A8%80
